@@ -6,7 +6,7 @@ import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class WebServerCustomerizer implements WebServerFactoryCustomizer<ConfigurableWebServerFactory> {
     // 어우,, 복작스런 implements...
     @Override
