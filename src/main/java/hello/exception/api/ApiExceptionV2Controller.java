@@ -12,22 +12,6 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 public class ApiExceptionV2Controller {
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    // @ExceptionHandler의 파마리터 IllegalArgumentException.class 이미 메서드 함수에 있음으로 빼기 가능
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ErrorResult illegalExHandler(IllegalArgumentException e){
-        log.error("[exceptionHandler] e", e);
-        return new ErrorResult("BAD",e.getMessage());
-
-    }
-
-    @ExceptionHandler
-    public ResponseEntity<ErrorResult> userExHandler(UserException e){
-        log.error("[exceptionHandler] e", e);
-        ErrorResult errorResult = new ErrorResult("USER-EX", e.getMessage());
-        return new ResponseEntity<>(errorResult,HttpStatus.BAD_REQUEST);
-    }
-
 
     @GetMapping("/api2/members/{id}")
     public MemberDto getMember(@PathVariable("id") String id){
